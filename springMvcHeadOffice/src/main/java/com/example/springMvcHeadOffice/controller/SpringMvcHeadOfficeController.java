@@ -31,18 +31,17 @@ public class SpringMvcHeadOfficeController {
                                       .toUri();
 
     /**
-     * HeadOffice 에서 특정 bookId를 통해 책을 찾아달라는 요청을 받으면
-     * RestTemplate 을 통하여 BranchOffice에 책을 찾아달라는 요청을 함 (Blocking I/O)
+     * HeadOffice 에서 특정 bookId를 통해 책을 찾아달라는 요청을 받으면 RestTemplate 을 통하여 BranchOffice에 책을 찾아달라는 요청을 함 (Blocking I/O)
      */
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{book-id}")
     public ResponseEntity<Book> getBook(@PathVariable("book-id") long bookId) {
         URI getBookUri = UriComponentsBuilder.fromUri(baseUri)
-            .path("/{book-id}")
-            .build()
-            .expand(bookId)
-            .encode()
-            .toUri(); // http://localhost:7070/v1/books/{book-id}
+                                             .path("/{book-id}")
+                                             .build()
+                                             .expand(bookId)
+                                             .encode()
+                                             .toUri(); // http://localhost:7070/v1/books/{book-id}
 
         ResponseEntity<Book> response = restTemplate.getForEntity(getBookUri, Book.class);
         Book book = response.getBody();

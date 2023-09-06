@@ -1,4 +1,4 @@
-package com.example.springMvcHeadOffice.dto;
+package com.example.springReactiveHeadOffice.dto;
 
 import lombok.Getter;
 
