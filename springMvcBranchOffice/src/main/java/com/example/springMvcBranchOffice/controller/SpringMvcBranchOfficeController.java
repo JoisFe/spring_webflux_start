@@ -1,8 +1,8 @@
-package com.example.springMvcHeadOffice.controller;
+package com.example.springMvcBranchOffice.controller;
 
-import java.awt.print.Book;
+import com.example.springMvcBranchOffice.domain.Book;
 import java.util.Map;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-@AllArgsConstructor
 @RestController
 @RequestMapping("/v1/books")
 public class SpringMvcBranchOfficeController {
 
     private Map<Long, Book> bookMap;
+
+    @Autowired
+    public SpringMvcBranchOfficeController(Map<Long, Book> bookMap) {
+        this.bookMap = bookMap;
+    }
 
     /**
      * HeadOffice 에서 bookId 를 통해 책을 조회하는 요청이 왔음

@@ -1,6 +1,6 @@
 package com.example.springMvcHeadOffice.controller;
 
-import java.awt.print.Book;
+import com.example.springMvcHeadOffice.dto.Book;
 import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
