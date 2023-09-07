@@ -10,8 +10,8 @@ public class HelloreactorApplication {
     public static void main(String[] args) {
         SpringApplication.run(HelloreactorApplication.class, args);
 
-        Flux<String> sequence = Flux.just("Hello", "Reactor");
-        sequence.map(String::toLowerCase)
-            .subscribe(System.out::println);
+        Flux<String> sequence = Flux.just("Hello", "Reactor"); // 데이터 생성 및 제공
+        sequence.map(String::toLowerCase) // 데이터 가공
+                .subscribe(System.out::println); // 전달받은 데이터 처리
     }
 }
